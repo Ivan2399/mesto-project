@@ -1,0 +1,9 @@
+.profile {
+  display: grid;
+  grid-template-columns: 10% 50% 10% 30%;
+  grid-template-rows: repeat(2,minmax(100px,120px));
+  margin: 5% 15.7% 0 15.7%;
+  max-width: 880px;
+  width: 68.6%;
+  
+}

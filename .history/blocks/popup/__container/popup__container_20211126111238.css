@@ -1,0 +1,6 @@
+.popup__container{
+    position: fixed;
+    width: 430px;
+    height: 330px;
+    background-color: white;
+}

@@ -1,0 +1,9 @@
+.popup__container{
+    
+
+    position: absolute;
+  width: 1280px;
+  height: 720px;
+  background-color: #000000;
+  opacity: 0.5;
+}

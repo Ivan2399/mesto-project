@@ -1,0 +1,15 @@
+.table__button {
+  width: 22px;
+  height: 19px;
+  /* background-image: url(../../../images/buttons/Vector.svg);
+  border: none;
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  align-self: flex-end;
+  margin-left: 10%;
+}
+.table__button:hover {
+  color: #00000000;
+  opacity: 0.8;
+}

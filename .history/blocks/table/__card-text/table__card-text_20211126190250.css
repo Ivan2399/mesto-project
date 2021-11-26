@@ -1,0 +1,8 @@
+.table__card-text{
+    width: 100%;
+    max-height: fit-content;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

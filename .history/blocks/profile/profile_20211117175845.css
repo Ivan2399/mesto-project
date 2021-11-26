@@ -1,0 +1,8 @@
+.profile {
+  display: grid;
+  grid-template-columns: 10% 50% 10% 30%;
+  margin: 5% 15.7% 0 15.7%;
+  max-width: 880px;
+  width: 68.6%;
+  
+}

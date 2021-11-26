@@ -1,0 +1,10 @@
+@media screen {
+  .profile__buttons_type_editig_mobile{
+    
+  }
+  
+}
+.profile__buttons_type_editig_mobile :hover {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}

@@ -1,0 +1,14 @@
+.profile__buttons_type_editig {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../../images/buttons/Edit\ Button.svg);
+  background-color: black;
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 6.7%;
+}
+.profile__buttons_type_editig:hover {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}

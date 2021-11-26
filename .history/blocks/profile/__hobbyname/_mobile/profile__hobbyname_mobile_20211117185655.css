@@ -1,0 +1,9 @@
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  .profile__hobbyname_mobile {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,9 @@
+.profile__container_mobile{
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+@media screen and (min-width:200px) and (max-width:700px){
+    .profile__container_mobile{
+        justify-content: center;
+        justify-items: center;
+    }
+}

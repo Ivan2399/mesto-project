@@ -1,0 +1,4 @@
+.profile__button {
+  display: flex;
+  grid-column: 5;  
+}

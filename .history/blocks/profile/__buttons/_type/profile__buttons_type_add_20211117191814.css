@@ -1,0 +1,18 @@
+.profile__buttons_type_add {
+  width: 150px;
+  height: 50px;
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  object-fit: fill;
+  background-image: url(../../../../images/buttons/Add\ Button.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.profile__buttons_type_add:hover {
+  opacity: 0.6;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+}

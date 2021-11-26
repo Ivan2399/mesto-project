@@ -1,0 +1,15 @@
+.profile__buttons_type_add {
+  width: 150px;
+  height: 50px;
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  object-fit: fill;
+}
+.profile__buttons_type_add:hover {
+  opacity: 0.6;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+}

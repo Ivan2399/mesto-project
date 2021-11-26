@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+</head>
+
+<body class="root">
+    <div class="page">
+        <form class="popup popup_opened">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <fieldset class="popup__input">
+                    <input type="text" class="popup__item" value="Жак-Ив Кусто" placeholder="Ваше имя и фамилия"required>
+                    <input type="text" class="popup__item" value="Исследователь океана" placeholder="Ваше хобби"required>
+                </fieldset>
+                <img class="popup__button" src="images/popup/Submit Button.png">
+            </div>
+            <img class="popup__close" src="images/popup/Close Icon.png">
+        </form>
+        <header class="header">
+            <div class="header__container">
+                <img class="header__logo" src="images/logo/Vector.svg" alt="Логотип">
+                <div class="header__line"></div>
+            </div>
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="images/avatar/Avatar.png" alt="Аватарка">
+                <div class="profile__info">
+                    <h1 class="profile__nickname">Жак-Ив Кусто 
+                        <img class="profile__edit" src="images/buttons/Edit Button.svg">
+                    </h1>
+                    <p class="profile__hobbyname ">Исследователь океана</p>
+                </div>
+                <div class="profile__button">                 
+                    <img class="profile__add">
+                </div>
+            </section>
+            <section class="table">
+                <div class="table__container">
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Karachaevsk.png" alt="Крепость">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Карачаевск</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Mountain.png" alt="Гора Эльбрус">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Гора Эльбрус</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Dombay.png" alt="Домбай">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Домбай</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Mountain.png" alt="Крепость">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Гора Эльбрус</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Dombay.png" alt="Крепость">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Домбай</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                    <div class="table__card">
+                        <img class="table__image" src="images/table/Karachaevsk.png" alt="Крепость">
+                        <div class="table__card-text">
+                            <h2 class="table__title">Карачаево-Ч...</h2>
+                            <img class="table__button table__button_active" src="images/buttons/Vector.svg" alt="Лайк">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <h2 class="footer__logo">© 2020 Mesto Russia</h2>
+        </footer>
+    </div>
+</body>
+
+</html>

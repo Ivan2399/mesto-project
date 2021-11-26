@@ -1,0 +1,9 @@
+.table__button{
+    width:22px;
+    height:19px;
+    background-image: url(../../../images/buttons/Like\ Button.svg);
+    border:none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-self: flex-end;
+}

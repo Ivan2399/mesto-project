@@ -1,0 +1,12 @@
+.table__container {
+  display: grid;
+  justify-items: center;
+  gap: 2%;
+}
+@media screen and (min-width:300px) and (max-width:600px){
+    .table__container{
+        .table__container_mobile{
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+    }
+}

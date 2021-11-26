@@ -1,0 +1,8 @@
+.table__card{
+    max-width: 282px;
+    background-color: white;
+    border-radius: 5%;
+    margin: 8.5px;
+    display: flex;
+    flex-direction: column;
+}

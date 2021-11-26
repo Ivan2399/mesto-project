@@ -1,0 +1,14 @@
+/* @media screen and (min-width: 200px) and (max-width: 400px) {
+  .profile__nickname_mobile {
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+    margin: 0;
+  }
+} */
+.profile__nickname_mobile {
+  font-size: 27px;
+  line-height: 33px;
+  text-align: center;
+  margin: 0;
+}

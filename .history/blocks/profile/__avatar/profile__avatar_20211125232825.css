@@ -1,0 +1,10 @@
+.profile__avatar{
+  max-width:168.75px;
+  max-height:120px;
+}
+
+@media screen and (min-width: 250px) and (max-width: 800px) {
+  .profile__avatar {
+    margin-top: 38.25;
+  }
+}

@@ -1,0 +1,9 @@
+.profile__buttons_type_editig {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+}
+.profile__buttons_type_editig:hover {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}

@@ -1,0 +1,12 @@
+.profile__buttons_type_editig{
+    width:24px;
+    height:24px;
+    background-image: url(../../../../images/buttons/Edit\ Button.svg);
+    background-color: black;
+    border:none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 6.7%;
+}

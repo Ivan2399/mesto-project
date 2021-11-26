@@ -1,0 +1,8 @@
+.profile__nickname {
+  width:18rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  grid-column: 2;
+}

@@ -1,0 +1,10 @@
+.table__button {
+  width: 22px;
+  height: 19px;
+  margin: 30px 20px 30px 0;
+}
+.table__button:hover {
+  color: #000000;
+  opacity: 0.6;
+}
+

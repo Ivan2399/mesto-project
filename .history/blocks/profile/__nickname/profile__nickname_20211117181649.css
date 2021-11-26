@@ -1,0 +1,10 @@
+.profile__nickname {
+  grid-column: 2;
+  font-family: "Inter-Bold";
+  font-style: bold;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  
+  align-self: center;
+}

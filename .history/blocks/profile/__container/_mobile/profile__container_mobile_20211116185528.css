@@ -1,0 +1,13 @@
+.profile__container_mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .profile__container_mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+  }
+}
