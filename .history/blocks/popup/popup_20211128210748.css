@@ -1,0 +1,19 @@
+.popup {
+  position: absolute;
+  display: none;
+  width: 1280px;
+  height: 720px;
+  background-color: #00000050;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 250px) and (max-width: 400px) {
+  .popup {
+    width: 320px;
+    height: 568px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
