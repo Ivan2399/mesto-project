@@ -7,7 +7,7 @@
   background-color: transparent;
   margin: 30px 0 0 0;
 }
-.popup__item[name="name"],[name="hobby"] {
+.popup__item[name="Жак-Ив Кусто"],[hobby="Исследователь океана"] {
   font-family: "Inter",Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
