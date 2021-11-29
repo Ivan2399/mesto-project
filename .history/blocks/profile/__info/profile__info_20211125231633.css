@@ -1,7 +1,0 @@
-.profile__info {
-  display: flex;
-  min-width: 336px;
-  align-items: center;
-  flex-direction: column;
-  justify-self: flex-start;
-}

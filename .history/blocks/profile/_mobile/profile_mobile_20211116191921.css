@@ -1,6 +1,0 @@
-.profile_mobile{
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-}
-@media screen and (min-width:300px) and (max-width:768px){
-    
-}

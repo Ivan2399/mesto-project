@@ -1,8 +1,6 @@
 .popup_opened {
   display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
-@media screen and (min-width: 340px) and (max-width: 1000px) {
-  .popup_opened {
-    display: none;
-  }
-}
+

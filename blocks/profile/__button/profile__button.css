@@ -1,4 +1,11 @@
 .profile__button {
   display: flex;
-  grid-column: 5;  
+  grid-column: 5; 
+  justify-self: center;
+}
+@media screen and (min-width: 250px) and (max-width: 820px){
+  .profile__button{
+    grid-column: 1;
+    grid-row: 3;
+  }
 }

@@ -1,8 +1,0 @@
-.popup_opened{
-    display: flex;
-}
-@media screen and (min-width: 340px) and (max-width: 900px){
-    .popup_opened{
-        display: none;
-    }
-}

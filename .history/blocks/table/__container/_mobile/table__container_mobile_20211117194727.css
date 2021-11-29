@@ -1,3 +1,0 @@
-.table__container_mobile{
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-}

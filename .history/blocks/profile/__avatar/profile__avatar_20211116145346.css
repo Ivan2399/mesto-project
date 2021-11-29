@@ -1,7 +1,0 @@
-.profile__avatar{
-    max-width:168.75px;
-    height:127.5px;
-    background-image: url(../../../images/avatar/Avatar.png);
-    background-repeat: no-repeat;
-    grid-column:1;
-}

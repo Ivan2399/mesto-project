@@ -2,13 +2,15 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 900;
-  src: url(./__inter/static/Inter-Black.woff) format("woff");
+  src: url(./__inter/static/Inter-Black.woff) format("woff"),
+    url(./__inter/static/Inter-Black.ttf) format("truetype");
 }
 @font-face {
   font-family: "Inter";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   src: url(./__inter/static/Inter-Medium.woff2) format("woff2"),
+    url(./__inter/static/Inter-Medium.ttf) format("truetype"),
     url(./__inter/static/Inter-Medium.woff) format("woff");
 }
 @font-face {
