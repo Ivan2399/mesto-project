@@ -1,0 +1,17 @@
+.table__button {
+  width: 22px;
+  height: 19px;
+  margin: 30px 20px 30px 0;
+
+  background-image: url(../../../images/table/heart.svg);
+  background-size: cover;
+  border: 0;
+  background-color: white;
+
+  cursor: pointer;
+  z-index: 10;
+}
+.table__button:hover {
+  opacity: 0.5;
+}
+
