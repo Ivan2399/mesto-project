@@ -9,26 +9,15 @@
     <title>Mesto</title>
 </head>
 
-<body class="root">
+<body class="root">  
     <div class="page">
-        <div class="popup">
+        <div class="popup popup_opened">
             <div class="popup__container">
                 <button id="close" type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="profile-editing" class="popup__forms">
                     <input name="name-editing" type="text" class="popup__item" value="Жак-Ив Кусто">
                     <input name="hobby-editing" type="text" class="popup__item" value="Исследователь океана">
-                    <button id="save" type="submit" class="popup__button">Сохранить</button>
-                </form>
-            </div>
-        </div>
-        <div id="add" class="popup">
-            <div id="addContainer" class="popup__container">
-                <button id="addClose" type="button" class="popup__close"></button>
-                <h2 class="popup__title">Новое место</h2>
-                <form name="profile-editing" class="popup__forms">
-                    <input name="name-editing" type="text" class="popup__item" value="Название">
-                    <input name="hobby-editing" type="text" class="popup__item" value="Ссылка на картинку">
                     <button type="submit" class="popup__button">Сохранить</button>
                 </form>
             </div>
@@ -38,17 +27,16 @@
                 <img class="header__logo" src="images/logo/Vector.svg" alt="Логотип">
             </div>
         </header>
-        <main id="main">
+        <main>
             <section class="profile">
-                <img class="profile__avatar" src="./images/avatar/Avatar.png" alt="Аватарка">
+                <img class="profile__avatar" src="./images/avatar/Avatar.png" alt="Аватарка"> <!--Нужно было фиксированную ширину и высоту сделать, забыл поменять в прошлый раз-->
                 <div class="profile__info">
                     <h1 class="profile__nickname">Жак-Ив Кусто</h1>
                     <p class="profile__hobbyname ">Исследователь океана</p>
                 </div>
                 <button type="button" class="profile__edit"><img src="images/buttons/pen.svg"
                         alt="редактирование"></button>
-                <button type="button" class="profile__add"><img class="profile__add-size" src="images/buttons/plus.svg"
-                        alt="добавить"></button>
+                <button type="button" class="profile__add"><img class="profile__add-size" src="images/buttons/plus.svg" alt="добавить"></button>
             </section>
             <section class="table">
                 <div class="table__container">
@@ -101,7 +89,7 @@
             <p class="footer__logo">© 2020 Mesto Russia</p>
         </footer>
     </div>
-    <script src="scripts.js"></script>
+<script src="scripts.js"></script>
 </body>
 
 </html>

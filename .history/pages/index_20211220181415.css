@@ -49,5 +49,5 @@
 
 /* popup-add */
 
-@import url(../blocks/popup-add/_active/popup-add_active.css);
+@import url(../blocks/popup-add/_opened/popup-add_opened.css);
 @import url(../blocks/popup-add/popup-add.css);

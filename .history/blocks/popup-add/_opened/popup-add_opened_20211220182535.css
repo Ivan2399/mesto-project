@@ -1,0 +1,5 @@
+.popup-add_activ {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
