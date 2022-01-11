@@ -1,4 +1,4 @@
-.table__button_active:active{
+.table__button_active{
     background-image: url(../../../../images/table/black-heart.svg);
     opacity: 1;
 }

@@ -1,0 +1,5 @@
+.table__image_active {
+    min-width:816px;
+    min-height: 540px;
+    object-fit: cover;
+}
