@@ -1,1 +1,0 @@
-let cardsContainer = document.querySelector(".table__container");

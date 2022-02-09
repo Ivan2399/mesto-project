@@ -1,8 +1,0 @@
-.table__image {
-  position: relative;
-  width: 282px;
-  height: 282px;
-  max-height: 720px;
-  border-radius: 10px 10px 0 0;
-  object-fit: cover;
-}
