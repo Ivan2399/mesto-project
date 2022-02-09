@@ -1,0 +1,28 @@
+/* .table {
+  display: grid;
+  max-width: 1000px;
+  margin: 4% auto 0;
+} */
+
+.table {
+  max-width: 880px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 282px);
+  gap: 20px 17px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@media (max-width: 920px) {
+  .table {
+    grid-template-columns: repeat(2, 282px);
+  }
+}
+
+@media (max-width: 630px) {
+  .table {
+    grid-template-columns: 282px;
+  }
+}

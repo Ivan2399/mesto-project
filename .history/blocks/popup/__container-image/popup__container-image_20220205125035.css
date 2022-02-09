@@ -1,0 +1,8 @@
+.popup__container-image{
+    
+}
+@media screen and (min-width: 430px) and (max-width: 800px) {
+    .popup__container-image{
+
+    }
+}

@@ -1,0 +1,14 @@
+.popup__container-image {
+}
+@media screen and (min-width: 430px) and (max-width: 800px) {
+    .popup__container-image {
+      width: 433px;
+      height: 540px;
+    }
+  }
+  @media screen and (min-width: 300px) and (max-width: 430px) {
+    .popup__container-image {
+      width: 240px;
+      height: 299px;
+    }
+  }

@@ -1,0 +1,14 @@
+.table__delete {
+  z-index: 10;
+  padding: 0;
+  width: 18px;
+  height: 19px;
+  background-image: url(../../../images/buttons/delete.svg);
+  background-color: rgba(255, 255, 255, 0);
+  background-size: cover;
+  border: 0;
+}
+.table__delete:hover {
+  opacity: 0.6;
+}
+

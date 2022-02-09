@@ -1,0 +1,15 @@
+/* .table__card{
+    max-width: 282px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 8.5px;
+    display: flex;
+    flex-direction: column;
+} */
+
+.table__card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 10px;
+  color: #000000;
+}

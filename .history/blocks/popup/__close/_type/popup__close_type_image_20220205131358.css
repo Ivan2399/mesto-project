@@ -1,0 +1,11 @@
+.popup__close_type_image {
+  top: 17%;
+  left: 82.5%;
+}
+@media screen and (min-width: 430px) and (max-width: 800px) {
+  .popup_close_type_image {
+    top: 10%;
+    left: 82.5%;
+  }
+}
+
