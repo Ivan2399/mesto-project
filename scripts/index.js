@@ -61,7 +61,7 @@ function createCard(link, name) {
   cardItem.querySelector(".table__image").alt = name;
   cardItem.querySelector(".table__title").textContent = name;
   setLikeCardEventListener(cardItem);
-  deleteCard(cardItem);
+  setDeleteCardEventListner(cardItem);
   setCardImageClickListener(cardItem);
   return cardItem;
 }
@@ -99,7 +99,7 @@ function setLikeCardEventListener(cardItem) {
     });
 }
 
-function deleteCard(cardItem) {
+function setDeleteCardEventListner(cardItem) {
   cardItem
     .querySelector(".table__delete")
     .addEventListener("click", function (evt) {
