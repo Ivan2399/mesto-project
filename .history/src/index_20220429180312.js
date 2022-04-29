@@ -3,7 +3,7 @@ import './index.css';
 import {openPopup, closePopup, resetForm, renderLoading} from "./scripts/utils.js";
 import {createCard} from "./scripts/card.js";
 import {enableValidation, resetValidation} from "./scripts/validate.js";
-// import {getCardsFromServer, getProfileInfoFromServer, loadCardToServer, loadAvatarToServer, loadProfileInfoToServer, deleteCardFromServer} from "./scripts/api.js";
+import {getCardsFromServer, getProfileInfoFromServer, loadCardToServer, loadAvatarToServer, loadProfileInfoToServer, deleteCardFromServer} from "./scripts/api.js";
 
 export const cards = document.querySelector('.elements');
 
@@ -33,25 +33,25 @@ export const linkInput = formAddElement.querySelector('.popup__input-item_type_l
 
 const exitButtons = document.querySelectorAll('.popup__button-exit');
 
-// Promise.all([
-//   getProfileInfoFromServer(),
-//   getCardsFromServer(),
-//   // deleteCardFromServer(),
-// ])
-// .then(([userData, cardsFromServer]) => {
-//   profileName.textContent = userData.name;
-//   profileName.dataset.id = userData._id;
-//   hobby.textContent = userData.about;
-//   avatar.src = userData.avatar;
+Promise.all([
+  getProfileInfoFromServer(),
+  getCardsFromServer(),
+  // deleteCardFromServer(),
+])
+.then(([userData, cardsFromServer]) => {
+  profileName.textContent = userData.name;
+  profileName.dataset.id = userData._id;
+  hobby.textContent = userData.about;
+  avatar.src = userData.avatar;
 
-//   cardsFromServer.forEach((item) => {
-//     const cardElement = createCard(item.link, item.name, item);
-//     cards.append(cardElement);
-//   });
-// })
-// .catch((err) => {
-//   console.log(err);
-// });    
+  cardsFromServer.forEach((item) => {
+    const cardElement = createCard(item.link, item.name, item);
+    cards.append(cardElement);
+  });
+})
+.catch((err) => {
+  console.log(err);
+});    
 
 // закрытие попапов
 exitButtons.forEach( function (item) {
