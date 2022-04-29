@@ -1,4 +1,4 @@
-import './index.css';
+import '../index.css';
 
 import {openPopup, closePopup, resetForm} from "./scripts/utils";
 import {createCard, submitFotoHandler} from "./scripts/card";
