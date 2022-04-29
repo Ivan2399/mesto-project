@@ -8,6 +8,7 @@ export const cards = document.querySelector('.elements');
 
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
+
 const hobby = profile.querySelector('.profile__hobby');
 const editButton = profile.querySelector('.profile__button-edit');
 const addButton = profile.querySelector('.profile__button-add');
