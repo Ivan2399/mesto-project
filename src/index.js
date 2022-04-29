@@ -90,14 +90,14 @@ export function deleteCard(cardElement) {
   });
 }
 
-// закрытие попапов
+// close pop
 exitButtons.forEach( function (item) {
   item.addEventListener('click', function() {
     closePopup(item.closest('.popup'));
   });    
 })
 
-// закрытие попапов по клику на оверлей
+// close overlay
 popupOverlays.forEach(function(item) {
   item.addEventListener('click', function (evt) {
     if (evt.target.classList.contains('popup_opened')) {
@@ -106,7 +106,7 @@ popupOverlays.forEach(function(item) {
   });
 });
 
-// закрытие попапов по нажатию Esc
+// close Esc
 export function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
@@ -114,7 +114,7 @@ export function closePopupByEsc(evt) {
   }  
 }
 
-//edit profile
+//edit
 editButton.addEventListener('click', function() {
   resetForm(popupEdit);
   resetValidation(popupEdit);
@@ -131,7 +131,7 @@ function submitHandler (evt) {
 }
 formElement.addEventListener('submit', submitHandler);
 
-//edit avatar
+//edit ava
 
 avatar.addEventListener('mouseover', function (evt) {
   avatarEditButton.classList.add('profile__avatar-button-edit_visible');
@@ -153,7 +153,7 @@ function submitAvatarHandler (evt) {
 }
 formAvatarEdit.addEventListener('submit', submitAvatarHandler);
 
-//add foto
+//add 
 addButton.addEventListener('click', function() { 
   resetForm(popupAdd);
   resetValidation(popupAdd);
@@ -162,7 +162,7 @@ addButton.addEventListener('click', function() {
 
 formAddElement.addEventListener('submit', submitFotoHandler);
 
-// валидация форм
+// validation
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input-item",
