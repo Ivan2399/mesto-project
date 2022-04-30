@@ -1,5 +1,3 @@
-import { closePopupByEsc } from "../index";
-
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupByEsc);
@@ -14,4 +12,11 @@ function resetForm(popup) {
   popup.querySelector(".popup__form").reset();
 }
 
-export { openPopup, closePopup, resetForm };
+function closePopupByEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
+
+export { openPopup, closePopup, resetForm, closePopupByEsc };
