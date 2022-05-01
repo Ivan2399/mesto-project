@@ -21,7 +21,7 @@ import {
   initialCards
 } from "./scripts/constants";
 import { openPopup, closePopup, resetForm } from "./scripts/utils";
-import { createCard, handleFotoSubmit } from "./scripts/card";
+import { createCard, submitFotoHandler } from "./scripts/card";
 import { enableValidation, resetValidation } from "./scripts/validate";
 
 initialCards.forEach((item) => {
@@ -77,12 +77,12 @@ avatarEditButton.addEventListener("click", function () {
   openPopup(popupAvatarEdit);
 });
 
-function handleAvatarSubmit(evt) {
+function submitAvatarHandler(evt) {
   evt.preventDefault();
   avatar.src = linkInputOfAvatar.value;
   closePopup(popupAvatarEdit);
 }
-formAvatarEdit.addEventListener("submit", handleAvatarSubmit);
+formAvatarEdit.addEventListener("submit", submitAvatarHandler);
 
 //add
 addButton.addEventListener("click", function () {
@@ -91,7 +91,7 @@ addButton.addEventListener("click", function () {
   openPopup(popupAdd);
 });
 
-formAddElement.addEventListener("submit", handleFotoSubmit);
+formAddElement.addEventListener("submit", submitFotoHandler);
 
 // validation
 enableValidation({
