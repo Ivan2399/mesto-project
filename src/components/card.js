@@ -59,7 +59,7 @@ function deleteCard(cardElement) {
     });
 }
 // создание карточки
-export function createCard(card) { // приходит одна картинка , 
+export function createCard(card) { // приходит одна картинка , подскажите в чем тут проблема.
   console.log(card);
   console.log(card.name); // undefined
   const cardElement = cardTemplate
