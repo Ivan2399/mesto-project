@@ -1,3 +1,4 @@
+
 // закртие по esc
 function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {

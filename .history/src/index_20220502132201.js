@@ -1,4 +1,5 @@
 import "./index.css";
+
 import {
   openPopup,
   closePopup,
@@ -13,6 +14,7 @@ import {
   loadCardToServer,
   loadAvatarToServer,
   loadProfileInfoToServer,
+  deleteCardFromServer,
 } from "./scripts/api.js";
 import {
   cards,

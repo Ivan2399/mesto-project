@@ -1,4 +1,5 @@
 import "./index.css";
+
 import {
   openPopup,
   closePopup,
@@ -13,9 +14,15 @@ import {
   loadCardToServer,
   loadAvatarToServer,
   loadProfileInfoToServer,
+  deleteCardFromServer,
 } from "./scripts/api.js";
 import {
+  cardTemplate,
+  popupOpenImage,
+  popupImage,
+  popupImageTitle,
   cards,
+  profile,
   profileName,
   hobby,
   editButton,
@@ -37,9 +44,38 @@ import {
   exitButtons,
 } from "./scripts/constants.js";
 
+// export const cards = document.querySelector('.elements');
+
+// const profile = document.querySelector('.profile');
+// export const profileName = profile.querySelector('.profile__name');
+// const hobby = profile.querySelector('.profile__hobby');
+// const editButton = profile.querySelector('.profile__button-edit');
+// const addButton = profile.querySelector('.profile__button-add');
+// const avatar = profile.querySelector('.profile__avatar');
+// const avatarEditButton = profile.querySelector('.profile__avatar-button-edit');
+
+// const popupOverlays = document.querySelectorAll('.popup');
+
+// const popupAvatarEdit = document.querySelector('#popup-avatar-edit');
+// const formAvatarEdit =  popupAvatarEdit.querySelector('.popup__form');
+// const linkInputOfAvatar = popupAvatarEdit.querySelector('.popup__input-item_type_link');
+
+// const popupEdit = document.querySelector('#popup-edit');
+// const profileForm =  popupEdit.querySelector('.popup__form');
+// const nameInput = profileForm.querySelector('.popup__input-item_type_name');
+// const jobInput = profileForm.querySelector('.popup__input-item_type_profession');
+
+// export const popupAdd = document.querySelector('#popup-add');
+// const formAddElement =  popupAdd.querySelector('.popup__form');
+// export const cardNameInput = formAddElement.querySelector('.popup__input-item_type_card-name');
+// export const linkInput = formAddElement.querySelector('.popup__input-item_type_link');
+
+// const exitButtons = document.querySelectorAll('.popup__button-exit');
+
 Promise.all([
   getProfileInfoFromServer(),
   getCardsFromServer(),
+  // deleteCardFromServer(),
 ])
   .then(([userData, cardsFromServer]) => {
     profileName.textContent = userData.name;

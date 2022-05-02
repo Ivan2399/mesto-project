@@ -56,7 +56,9 @@ const setEventListeners = (config, formElement) => {
 };
 
 export const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  const formList = Array.from(
+    document.querySelectorAll(config.formSelector)
+  );
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
@@ -67,18 +69,19 @@ export const enableValidation = (config) => {
 
 //сброс настроек валидации для корректного открытия попапа c формой вновь
 export function resetValidation(popup) {
-  const buttonElement = popup.querySelector(".popup__button");
+  const buttonElement = popup.querySelector('.popup__button');
   buttonElement.disabled = true;
-  buttonElement.classList.add("popup__button_disabled");
-  popup.querySelectorAll(".popup__input-item").forEach((inputElement) => {
-    if (inputElement.classList.contains("popup__input-item_type_error")) {
-      inputElement.classList.remove("popup__input-item_type_error");
+  buttonElement.classList.add('popup__button_disabled');
+  popup.querySelectorAll('.popup__input-item').forEach((inputElement) => {
+    if (inputElement.classList.contains('popup__input-item_type_error')) {
+      inputElement.classList.remove('popup__input-item_type_error');        
     }
   });
-  popup.querySelectorAll(".popup__error").forEach((errorElement) => {
-    if (errorElement.classList.contains("popup__error_visible")) {
-      errorElement.classList.remove("popup__error_visible");
-      errorElement.textContent = "";
+  popup.querySelectorAll('.popup__error').forEach((errorElement) => {
+    if (errorElement.classList.contains('popup__error_visible')) {
+      errorElement.classList.remove('popup__error_visible');        
+      errorElement.textContent = '';
     }
   });
 }
+

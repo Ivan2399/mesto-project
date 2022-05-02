@@ -1,3 +1,4 @@
+// import { cards, profileName } from "../index";
 import { openPopup } from "./utils.js";
 import { countCardLikes, deleteCardFromServer } from "./api.js";
 import {
@@ -5,9 +6,14 @@ import {
   popupOpenImage,
   popupImage,
   popupImageTitle,
+  cards,
   profileName,
 } from "./constants.js";
 
+// const cardTemplate = document.querySelector('#card').content;
+// const popupOpenImage = document.querySelector('#popup-image');
+// const popupImage =  popupOpenImage.querySelector('.popup__image');
+// const popupImageTitle =  popupOpenImage.querySelector('.popup__image-title');
 // открыте картинки
 function openCardImage(cardElement) {
   const cardImage = cardElement.querySelector(".elements__image");
