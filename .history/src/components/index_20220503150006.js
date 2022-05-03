@@ -134,7 +134,7 @@ function handleFotoFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt);
 
-  loadCardToServer(linkInput.value, cardNameInput.value)
+  loadCardToServer(linkInput, cardNameInput)
     .then((result) => {
       const cardElement = createCard(
         linkInput.value,

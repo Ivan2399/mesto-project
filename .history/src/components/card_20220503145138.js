@@ -59,7 +59,7 @@ function deleteCard(cardElement) {
     });
 }
 // создание карточки
-export function createCard(card) {
+export function createCard(card) { 
   const cardElement = cardTemplate
     .querySelector(".elements__element")
     .cloneNode(true);

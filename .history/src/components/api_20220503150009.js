@@ -40,8 +40,8 @@ export const loadCardToServer = (linkInput, cardNameInput) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: cardNameInput,
-      link: linkInput,
+      name: cardNameInput.value,
+      link: linkInput.value,
     }),
   }).then(processStatus);
 };

@@ -40,8 +40,8 @@ export const loadCardToServer = (linkInput, cardNameInput) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: cardNameInput,
-      link: linkInput,
+      name: cardNameInput.value,
+      link: linkInput.value,
     }),
   }).then(processStatus);
 };
@@ -77,7 +77,7 @@ export const loadAvatarToServer = (linkInputOfAvatar) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      avatar: linkInputOfAvatar,
+      avatar: linkInputOfAvatar.value,
     }),
   }).then(processStatus);
 };

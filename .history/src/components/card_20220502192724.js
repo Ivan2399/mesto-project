@@ -59,7 +59,9 @@ function deleteCard(cardElement) {
     });
 }
 // создание карточки
-export function createCard(card) {
+export function createCard(card) { // приходит одна картинка , подскажите в чем тут проблема.
+  console.log(card);
+  console.log(card.name); // undefined
   const cardElement = cardTemplate
     .querySelector(".elements__element")
     .cloneNode(true);

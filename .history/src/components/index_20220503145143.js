@@ -76,10 +76,12 @@ editButton.addEventListener("click", function () {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt);
-  loadProfileInfoToServer(nameInput.value, jobInput.value)
+  loadProfileInfoToServer(nameInput, jobInput)
     .then((result) => {
       profileName.textContent = nameInput.value;
+      console.log(nameInput.value);
       hobby.textContent = jobInput.value;
+      console.log(jobInput.value);
       closePopup(popupEdit);
     })
     .catch((err) => {
@@ -109,7 +111,7 @@ avatarEditButton.addEventListener("click", function () {
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt);
-  loadAvatarToServer(linkInputOfAvatar.value)
+  loadAvatarToServer(linkInputOfAvatar)
     .then((result) => {
       avatar.src = linkInputOfAvatar.value;
       closePopup(popupAvatarEdit);
@@ -134,7 +136,7 @@ function handleFotoFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt);
 
-  loadCardToServer(linkInput.value, cardNameInput.value)
+  loadCardToServer(linkInput, cardNameInput)
     .then((result) => {
       const cardElement = createCard(
         linkInput.value,
