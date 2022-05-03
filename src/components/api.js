@@ -1,10 +1,4 @@
-// const config = {
-//   baseUrl: "https://nomoreparties.co/v1/plus-cohort-9/users/me",
-//   headers: {
-//     authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-//     "Content-Type": "application/json",
-//   },
-// };
+import { apiConfig } from "./constants";
 function processStatus(res) {
   if (res.ok) {
     return res.json();
@@ -13,32 +7,23 @@ function processStatus(res) {
 }
 
 export const getProfileInfoFromServer = () => {
-  return fetch("https://nomoreparties.co/v1/plus-cohort-9/users/me", {
+  return fetch(`${apiConfig.baseUrl}/users/me`, {
     method: "GET",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
   }).then(processStatus);
 };
 
 export const getCardsFromServer = () => {
-  return fetch("https://nomoreparties.co/v1/plus-cohort-9/cards", {
+  return fetch(`${apiConfig.baseUrl}/cards`, {
     method: "GET",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
   }).then(processStatus);
 };
 
 export const loadCardToServer = (linkInput, cardNameInput) => {
-  return fetch("https://nomoreparties.co/v1/plus-cohort-9/cards", {
+  return fetch(`${apiConfig.baseUrl}/cards`, {
     method: "POST",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
     body: JSON.stringify({
       name: cardNameInput,
       link: linkInput,
@@ -47,35 +32,23 @@ export const loadCardToServer = (linkInput, cardNameInput) => {
 };
 
 export const countCardLikes = (cardID, likeMethod) => {
-  return fetch(
-    `https://nomoreparties.co/v1/plus-cohort-9/cards/likes/${cardID}`,
-    {
-      method: likeMethod,
-      headers: {
-        authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-        "Content-Type": "application/json",
-      },
-    }
-  ).then(processStatus);
+  return fetch(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
+    method: likeMethod,
+    headers: apiConfig.headers,
+  }).then(processStatus);
 };
 
 export const deleteCardFromServer = (cardID) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-9/cards/${cardID}`, {
+  return fetch(`${apiConfig.baseUrl}/cards/${cardID}`, {
     method: "DELETE",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
   }).then(processStatus);
 };
 
 export const loadAvatarToServer = (linkInputOfAvatar) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-9/users/me/avatar`, {
+  return fetch(`${apiConfig.baseUrl}/users/me/avatar`, {
     method: "PATCH",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
     body: JSON.stringify({
       avatar: linkInputOfAvatar,
     }),
@@ -83,12 +56,9 @@ export const loadAvatarToServer = (linkInputOfAvatar) => {
 };
 
 export const loadProfileInfoToServer = (nameInput, jobInput) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-9/users/me`, {
+  return fetch(`${apiConfig.baseUrl}/users/me`, {
     method: "PATCH",
-    headers: {
-      authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
-      "Content-Type": "application/json",
-    },
+    headers: apiConfig.headers,
     body: JSON.stringify({
       name: nameInput,
       about: jobInput,

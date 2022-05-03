@@ -46,6 +46,22 @@ export const linkInput = formAddElement.querySelector(
 
 export const exitButtons = document.querySelectorAll(".popup__button-exit");
 
+export const apiConfig = {
+  baseUrl: "https://nomoreparties.co/v1/plus-cohort-9",
+  headers: {
+    authorization: "1001ec3d-141e-43d4-994e-a14ef4d63d1d",
+    "Content-Type": "application/json",
+  },
+};
+
+export const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input-item",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input-item_type_error",
+  errorClass: "popup__error_visible",
+};
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input-item",

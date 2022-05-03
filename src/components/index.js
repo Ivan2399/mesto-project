@@ -1,7 +1,7 @@
 import "../index.css";
 import { openPopup, closePopup, resetForm, renderLoading } from "./utils.js";
 import { createCard } from "./card.js";
-import { resetValidation } from "./validate.js";
+import { enableValidation, resetValidation } from "./validate.js";
 import {
   getCardsFromServer,
   getProfileInfoFromServer,
@@ -30,6 +30,7 @@ import {
   cardNameInput,
   linkInput,
   exitButtons,
+  validationConfig
 } from "./constants.js";
 
 Promise.all([getProfileInfoFromServer(), getCardsFromServer()])
@@ -133,14 +134,9 @@ addButton.addEventListener("click", function () {
 function handleFotoFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt);
-
   loadCardToServer(linkInput.value, cardNameInput.value)
     .then((result) => {
-      const cardElement = createCard(
-        linkInput.value,
-        cardNameInput.value,
-        result
-      );
+      const cardElement = createCard(result);
       cards.prepend(cardElement);
       closePopup(popupAdd);
     })
@@ -153,12 +149,5 @@ function handleFotoFormSubmit(evt) {
 }
 formAddElement.addEventListener("submit", handleFotoFormSubmit);
 
-// валидация форм
-// enableValidation({
-//   formSelector: ".popup__form",
-//   inputSelector: ".popup__input-item",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input-item_type_error",
-//   errorClass: "popup__error_visible",
-// });
+enableValidation(validationConfig);
+
