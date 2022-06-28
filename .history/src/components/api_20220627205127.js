@@ -1,6 +1,6 @@
 import { apiConfig } from "./constants";
 
-export default class Api {
+class Api {
   constructor(options) {
     this.options = options;
     this.loadCardToServer = this.loadCardToServer.bind(this);

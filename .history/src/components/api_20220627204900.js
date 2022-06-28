@@ -1,35 +1,34 @@
 import { apiConfig } from "./constants";
 
-export default class Api {
+class Api {
   constructor(options) {
     this.options = options;
     this.loadCardToServer = this.loadCardToServer.bind(this);
     this.loadAvatarToServer = this.loadAvatarToServer.bind(this);
     this.loadProfileInfoToServer = this.loadProfileInfoToServer.bind(this);
   }
-
-  processStatus(res) {
+  function processStatus(res) {
     if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Ошибка: ${res.status}`);
   }
-
-  getProfileInfoFromServer() {
+  
+  export const getProfileInfoFromServer = () => {
     return fetch(`${apiConfig.baseUrl}/users/me`, {
       method: "GET",
       headers: apiConfig.headers,
     }).then(processStatus);
-  }
-
-  getCardsFromServe() {
+  };
+  
+  export const getCardsFromServer = () => {
     return fetch(`${apiConfig.baseUrl}/cards`, {
       method: "GET",
       headers: apiConfig.headers,
     }).then(processStatus);
-  }
-
-  loadCardToServer(linkInput, cardNameInput) {
+  };
+  
+  export const loadCardToServer = (linkInput, cardNameInput) => {
     return fetch(`${apiConfig.baseUrl}/cards`, {
       method: "POST",
       headers: apiConfig.headers,
@@ -38,23 +37,23 @@ export default class Api {
         link: linkInput,
       }),
     }).then(processStatus);
-  }
-
-  countCardLikes(cardID, likeMethod) {
+  };
+  
+  export const countCardLikes = (cardID, likeMethod) => {
     return fetch(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
       method: likeMethod,
       headers: apiConfig.headers,
     }).then(processStatus);
-  }
-
-  deleteCardFromServer(cardID) {
+  };
+  
+  export const deleteCardFromServer = (cardID) => {
     return fetch(`${apiConfig.baseUrl}/cards/${cardID}`, {
       method: "DELETE",
       headers: apiConfig.headers,
     }).then(processStatus);
-  }
-
-  loadAvatarToServer(linkInputOfAvatar) {
+  };
+  
+  export const loadAvatarToServer = (linkInputOfAvatar) => {
     return fetch(`${apiConfig.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: apiConfig.headers,
@@ -62,9 +61,9 @@ export default class Api {
         avatar: linkInputOfAvatar,
       }),
     }).then(processStatus);
-  }
-
-  loadProfileInfoToServer(nameInput, jobInput) {
+  };
+  
+  export const loadProfileInfoToServer = (nameInput, jobInput) => {
     return fetch(`${apiConfig.baseUrl}/users/me`, {
       method: "PATCH",
       headers: apiConfig.headers,
@@ -73,5 +72,8 @@ export default class Api {
         about: jobInput,
       }),
     }).then(processStatus);
-  }
+  };
+  
 }
+
+

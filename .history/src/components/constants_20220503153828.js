@@ -1,4 +1,4 @@
-import { enableValidation } from "./FormValidation";
+import { enableValidation } from "./validate";
 
 export const cardTemplate = document.querySelector("#card").content;
 export const popupOpenImage = document.querySelector("#popup-image");

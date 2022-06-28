@@ -1,5 +1,5 @@
 import { openPopup } from "./utils.js";
-import { countCardLikes, deleteCardFromServer } from "./Api.js";
+import { countCardLikes, deleteCardFromServer } from "./api.js";
 import {
   cardTemplate,
   popupOpenImage,
@@ -9,25 +9,22 @@ import {
 } from "./constants.js";
 
 class Card {
-  constructor({ data, handleCardClick, likeCard, deleteCard, userId, createCard }, selector) {
-    this.data = data;
-    this.handleCardClick = handleCardClick;
-    this.likeCard = likeCard;
-    this.deleteCard = deleteCard;
-    this.selector = selector;
-    this.userId = userId;
-    this.createCard = createCard;
+  constructor(template) {
+    this.template = template;
+
   }
-  openCardImage(cardElement) {
+  openCardImage() {
     const cardImage = cardElement.querySelector(".elements__image");
     cardImage.addEventListener("click", function () {
       openPopup(popupOpenImage);
       popupImage.src = cardImage.src;
       popupImage.alt = cardImage.alt;
       popupImageTitle.textContent = cardImage.alt;
+      // popupImageTitle.textContent =
+      //   cardElement.querySelector(".elements__title").textContent;
     });
   }
-  likeCard(cardElement) {
+  likeCard() {
     cardElement
       .querySelector(".elements__like")
       .addEventListener("click", function (evt) {
@@ -56,7 +53,7 @@ class Card {
         }
       });
   }
-  deleteCard(cardElement) {
+  deleteCard() {
     cardElement
       .querySelector(".elements__delete")
       .addEventListener("click", function (evt) {
@@ -65,10 +62,10 @@ class Card {
         });
       });
   }
-  createCard(card) {
-    const cardElement = this._template.cloneNode(true);
-    //   .querySelector(".elements__element")
-    //   .cloneNode(true);
+  createCard() {
+    const cardElement = cardTemplate
+      .querySelector(".elements__element")
+      .cloneNode(true);
     const cardImage = cardElement.querySelector(".elements__image");
     cardImage.src = card.link;
     cardImage.alt = card.name;
@@ -99,7 +96,6 @@ class Card {
   }
 }
 
-export default Card;
 // открыте картинки
 // function openCardImage(cardElement) {
 //   const cardImage = cardElement.querySelector(".elements__image");

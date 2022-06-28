@@ -9,14 +9,13 @@ import {
 } from "./constants.js";
 
 class Card {
-  constructor({ data, handleCardClick, likeCard, deleteCard, userId, createCard }, selector) {
+  constructor({ data, openCardImage, likeCard, deleteCard, userId }, selector) {
     this.data = data;
-    this.handleCardClick = handleCardClick;
+    this.openCardImage = openCardImage;
     this.likeCard = likeCard;
     this.deleteCard = deleteCard;
     this.selector = selector;
     this.userId = userId;
-    this.createCard = createCard;
   }
   openCardImage(cardElement) {
     const cardImage = cardElement.querySelector(".elements__image");
@@ -25,6 +24,8 @@ class Card {
       popupImage.src = cardImage.src;
       popupImage.alt = cardImage.alt;
       popupImageTitle.textContent = cardImage.alt;
+      // popupImageTitle.textContent =
+      //   cardElement.querySelector(".elements__title").textContent;
     });
   }
   likeCard(cardElement) {

@@ -1,5 +1,5 @@
 import { openPopup } from "./utils.js";
-import { countCardLikes, deleteCardFromServer } from "./Api.js";
+import { countCardLikes, deleteCardFromServer } from "./api.js";
 import {
   cardTemplate,
   popupOpenImage,
@@ -9,14 +9,11 @@ import {
 } from "./constants.js";
 
 class Card {
-  constructor({ data, handleCardClick, likeCard, deleteCard, userId, createCard }, selector) {
-    this.data = data;
-    this.handleCardClick = handleCardClick;
-    this.likeCard = likeCard;
-    this.deleteCard = deleteCard;
-    this.selector = selector;
-    this.userId = userId;
-    this.createCard = createCard;
+  constructor(HTMLElement,creatorId) {
+    this.html = HTMLElement;
+    this.creatorId = creatorId;
+    this.image = HTMLElement
+    
   }
   openCardImage(cardElement) {
     const cardImage = cardElement.querySelector(".elements__image");
@@ -25,6 +22,8 @@ class Card {
       popupImage.src = cardImage.src;
       popupImage.alt = cardImage.alt;
       popupImageTitle.textContent = cardImage.alt;
+      // popupImageTitle.textContent =
+      //   cardElement.querySelector(".elements__title").textContent;
     });
   }
   likeCard(cardElement) {
@@ -99,7 +98,7 @@ class Card {
   }
 }
 
-export default Card;
+export default Card
 // открыте картинки
 // function openCardImage(cardElement) {
 //   const cardImage = cardElement.querySelector(".elements__image");

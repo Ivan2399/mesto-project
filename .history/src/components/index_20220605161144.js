@@ -1,15 +1,14 @@
 import "../index.css";
 import { openPopup, closePopup, resetForm, renderLoading } from "./utils.js";
 import { createCard } from "./Card.js";
-import { enableValidation, resetValidation } from "./FormValidation.js";
-// import {
-//   getCardsFromServer,
-//   getProfileInfoFromServer,
-//   loadCardToServer,
-//   loadAvatarToServer,
-//   loadProfileInfoToServer,
-// } from "./Api.js";
-import Api from "./Api";
+import { enableValidation, resetValidation } from "./validate.js";
+import {
+  getCardsFromServer,
+  getProfileInfoFromServer,
+  loadCardToServer,
+  loadAvatarToServer,
+  loadProfileInfoToServer,
+} from "./api.js";
 import {
   cards,
   profileName,
@@ -33,14 +32,6 @@ import {
   exitButtons,
   validationConfig
 } from "./constants.js";
-
-const api = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/cohort-42',
-  headers: {
-    authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
-    'Content-Type': 'application/json'
-  }
-}); 
 
 Promise.all([getProfileInfoFromServer(), getCardsFromServer()])
   .then(([userData, cardsFromServer]) => {
@@ -83,7 +74,23 @@ editButton.addEventListener("click", function () {
   jobInput.value = hobby.textContent;
 });
 
-
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  renderLoading(true, evt);
+  loadProfileInfoToServer(nameInput.value, jobInput.value)
+    .then((result) => {
+      profileName.textContent = nameInput.value;
+      hobby.textContent = jobInput.value;
+      closePopup(popupEdit);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, evt);
+    });
+}
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 //edit avatar
 
@@ -100,7 +107,21 @@ avatarEditButton.addEventListener("click", function () {
   openPopup(popupAvatarEdit);
 });
 
-
+function handleAvatarFormSubmit(evt) {
+  evt.preventDefault();
+  renderLoading(true, evt);
+  loadAvatarToServer(linkInputOfAvatar.value)
+    .then((result) => {
+      avatar.src = linkInputOfAvatar.value;
+      closePopup(popupAvatarEdit);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, evt);
+    });
+}
 formAvatarEdit.addEventListener("submit", handleAvatarFormSubmit);
 
 //add foto
@@ -110,7 +131,23 @@ addButton.addEventListener("click", function () {
   openPopup(popupAdd);
 });
 
-
+function handleFotoFormSubmit(evt) {
+  evt.preventDefault();
+  renderLoading(true, evt);
+  loadCardToServer(linkInput.value, cardNameInput.value)
+    .then((result) => {
+      const cardElement = createCard(result);
+      cards.prepend(cardElement);
+      closePopup(popupAdd);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, evt);
+    });
+}
+formAddElement.addEventListener("submit", handleFotoFormSubmit);
 
 enableValidation(validationConfig);
 

@@ -1,5 +1,5 @@
 import { openPopup } from "./utils.js";
-import { countCardLikes, deleteCardFromServer } from "./Api.js";
+import { countCardLikes, deleteCardFromServer } from "./api.js";
 import {
   cardTemplate,
   popupOpenImage,
@@ -9,25 +9,19 @@ import {
 } from "./constants.js";
 
 class Card {
-  constructor({ data, handleCardClick, likeCard, deleteCard, userId, createCard }, selector) {
-    this.data = data;
-    this.handleCardClick = handleCardClick;
-    this.likeCard = likeCard;
-    this.deleteCard = deleteCard;
-    this.selector = selector;
-    this.userId = userId;
-    this.createCard = createCard;
-  }
-  openCardImage(cardElement) {
+  constructor() {}
+  openCardImage() {
     const cardImage = cardElement.querySelector(".elements__image");
     cardImage.addEventListener("click", function () {
       openPopup(popupOpenImage);
       popupImage.src = cardImage.src;
       popupImage.alt = cardImage.alt;
       popupImageTitle.textContent = cardImage.alt;
+      // popupImageTitle.textContent =
+      //   cardElement.querySelector(".elements__title").textContent;
     });
   }
-  likeCard(cardElement) {
+  likeCard() {
     cardElement
       .querySelector(".elements__like")
       .addEventListener("click", function (evt) {
@@ -56,7 +50,7 @@ class Card {
         }
       });
   }
-  deleteCard(cardElement) {
+  deleteCard() {
     cardElement
       .querySelector(".elements__delete")
       .addEventListener("click", function (evt) {
@@ -65,10 +59,10 @@ class Card {
         });
       });
   }
-  createCard(card) {
-    const cardElement = this._template.cloneNode(true);
-    //   .querySelector(".elements__element")
-    //   .cloneNode(true);
+  createCard() {
+    const cardElement = cardTemplate
+      .querySelector(".elements__element")
+      .cloneNode(true);
     const cardImage = cardElement.querySelector(".elements__image");
     cardImage.src = card.link;
     cardImage.alt = card.name;
@@ -99,7 +93,6 @@ class Card {
   }
 }
 
-export default Card;
 // открыте картинки
 // function openCardImage(cardElement) {
 //   const cardImage = cardElement.querySelector(".elements__image");
@@ -151,35 +144,35 @@ export default Card;
 //     });
 // }
 // создание карточки
-// export function createCard(card) {
-//   const cardElement = cardTemplate
-//     .querySelector(".elements__element")
-//     .cloneNode(true);
-//   const cardImage = cardElement.querySelector(".elements__image");
-//   cardImage.src = card.link;
-//   cardImage.alt = card.name;
-//   cardElement.querySelector(".elements__title").textContent = card.name;
-//   cardElement.querySelector(".elements__like-counter").textContent =
-//     card.likes.length;
-//   cardElement.dataset.id = card._id;
-//   if (card.owner._id === profileName.dataset.id) {
-//     cardElement
-//       .querySelector(".elements__delete")
-//       .classList.add("elements__delete_visible");
-//   }
-//   // черные лайки только у меня , у остальных прозрачные
-//   const likesArray = card.likes;
-//   const nameMine = likesArray.some(function (name) {
-//     return name.name === profileName.textContent;
-//   });
-//   if (nameMine) {
-//     cardElement
-//       .querySelector(".elements__like")
-//       .classList.add("elements__like_active");
-//   }
-//   //
-//   likeCard(cardElement);
-//   deleteCard(cardElement);
-//   openCardImage(cardElement);
-//   return cardElement;
-// }
+export function createCard(card) {
+  const cardElement = cardTemplate
+    .querySelector(".elements__element")
+    .cloneNode(true);
+  const cardImage = cardElement.querySelector(".elements__image");
+  cardImage.src = card.link;
+  cardImage.alt = card.name;
+  cardElement.querySelector(".elements__title").textContent = card.name;
+  cardElement.querySelector(".elements__like-counter").textContent =
+    card.likes.length;
+  cardElement.dataset.id = card._id;
+  if (card.owner._id === profileName.dataset.id) {
+    cardElement
+      .querySelector(".elements__delete")
+      .classList.add("elements__delete_visible");
+  }
+  // черные лайки только у меня , у остальных прозрачные
+  const likesArray = card.likes;
+  const nameMine = likesArray.some(function (name) {
+    return name.name === profileName.textContent;
+  });
+  if (nameMine) {
+    cardElement
+      .querySelector(".elements__like")
+      .classList.add("elements__like_active");
+  }
+  //
+  likeCard(cardElement);
+  deleteCard(cardElement);
+  openCardImage(cardElement);
+  return cardElement;
+}

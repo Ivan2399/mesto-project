@@ -25,6 +25,8 @@ class Card {
       popupImage.src = cardImage.src;
       popupImage.alt = cardImage.alt;
       popupImageTitle.textContent = cardImage.alt;
+      // popupImageTitle.textContent =
+      //   cardElement.querySelector(".elements__title").textContent;
     });
   }
   likeCard(cardElement) {
