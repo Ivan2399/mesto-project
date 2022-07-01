@@ -1,8 +1,5 @@
 import "../index.css";
 // import { openPopup, closePopup, resetForm, renderLoading } from "./utils.js";
-import Popup from "./Popup";
-import PopupWithForm from "./PopupWithForm";
-import PopupWithImage from "./PopupWithImage";
 import { createCard } from "./Card.js";
 import { enableValidation, resetValidation } from "./FormValidation.js";
 // import {
@@ -45,9 +42,6 @@ const api = new Api({
   }
 }); 
 
-const popupWithForm = new PopupWithForm("#popup-edit");
-
-
 Promise.all([getProfileInfoFromServer(), getCardsFromServer()])
   .then(([userData, cardsFromServer]) => {
     profileName.textContent = userData.name;
@@ -82,12 +76,11 @@ popupOverlays.forEach(function (item) {
 
 //edit profile
 editButton.addEventListener("click", function () {
-  popupWithForm.openPopup();
-  // resetForm(popupEdit);
-  // resetValidation(popupEdit);
-  // openPopup(popupEdit);
-  // nameInput.value = profileName.textContent;
-  // jobInput.value = hobby.textContent;
+  resetForm(popupEdit);
+  resetValidation(popupEdit);
+  openPopup(popupEdit);
+  nameInput.value = profileName.textContent;
+  jobInput.value = hobby.textContent;
 });
 
 

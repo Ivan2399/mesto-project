@@ -47,7 +47,6 @@ const api = new Api({
 
 const popupWithForm = new PopupWithForm("#popup-edit");
 
-
 Promise.all([getProfileInfoFromServer(), getCardsFromServer()])
   .then(([userData, cardsFromServer]) => {
     profileName.textContent = userData.name;
@@ -82,7 +81,6 @@ popupOverlays.forEach(function (item) {
 
 //edit profile
 editButton.addEventListener("click", function () {
-  popupWithForm.openPopup();
   // resetForm(popupEdit);
   // resetValidation(popupEdit);
   // openPopup(popupEdit);

@@ -6,7 +6,8 @@ export default class Popup {
   }
   closePopupByEsc(evt) {
     if (evt.key === "Escape") {
-      closePopup(this._popupElement);
+      const openedPopup = document.querySelector(".popup_opened");
+      closePopup(openedPopup);
     }
   }
   // открыте попапа
@@ -19,7 +20,7 @@ export default class Popup {
     this._selector.classList.remove("popup_opened");
     document.removeEventListener("keydown", closePopupByEsc);
   }
-  _setEventListner() {
+  _clickPopupHandler () {
     this._closeButton.addEventListener("click", function () {
       closePopup(this._closeButton.closest(".popup"));
     });
@@ -28,17 +29,8 @@ export default class Popup {
         closePopup(evt.target);
       }
     });
-    document.addEventListener("keydown", this.closePopupByEsc);
   }
-  _removeEventListner() {
-    this._closeButton.removeEventListener("click", function () {
-      closePopup(this._closeButton.closest(".popup"));
-    });
-    this._popupElement.removeEventListener("click", function (evt) {
-      if (evt.target.classList.contains("popup_opened")) {
-        closePopup(evt.target);
-      }
-    });
-    document.removeEventListener("keydown", this.closePopupByEsc);
+  _setEventListner() {
+    this._clickPopupHandler();
   }
 }

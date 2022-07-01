@@ -46,6 +46,7 @@ const api = new Api({
 }); 
 
 const popupWithForm = new PopupWithForm("#popup-edit");
+console.log("sss")
 
 
 Promise.all([getProfileInfoFromServer(), getCardsFromServer()])

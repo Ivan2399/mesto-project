@@ -1,5 +1,5 @@
 import { enableValidation } from "./FormValidation";
-import { config } from "../utils/Config";
+import {config} from "../utils/Config"
 
 export const apiConfig = {
   baseUrl: "https://nomoreparties.co/v1/plus-cohort-9",
@@ -20,7 +20,7 @@ export const validationConfig = {
 enableValidation({
   formSelector: config.popup.formSelector,
   inputSelector: config.form.formInputSelector,
-  submitButtonSelector: config.form.sumbitSelectorButton,
+  submitButtonSelector:  config.form.sumbitSelectorButton,
   inactiveButtonClass: config.form.submitDisabledButton,
   inputErrorClass: config.form.formErrorInput,
   errorClass: config.form.formErrorClass,

@@ -28,33 +28,30 @@ export default class PopupWithForm extends Popup {
       }
     }
   }
-//   _setButtonState(isSending) {
-//     this._submitButton.disabled = isSending;
-//     this._submitButton.textContent = isSending ? 'Загрузка...' : this._defualtSubmitButtonText;
-//   }
 
   _setEventListner() {
     super._setEventListner();
-    this._form.addEventListener("submit", this._submitFormHandler);
-  }
-  _removeEventListner() {
-    super._removeEventListner();
-    this._form._removeEventListner("submit", this._submitFormHandler);
-  }
-  _submitFormHandler() {
-    evt.preventDefault();
-    renderLoading(true, evt);
-    const body = this._getInputValues();
-    this._submitFormHandler(body).then(() => this.closePopup()).finally(() => {
-        this._renderLoading(false);
-    })
-  }
-  closePopup() {
-    super.closePopup();
-    this._form.reset();
-  }
-}
-// function handleAvatarFormSubmit(evt) {
+
+    // function handleProfileFormSubmit(evt) {
+    //   evt.preventDefault();
+    //   renderLoading(true, evt);
+    //   loadProfileInfoToServer(nameInput.value, jobInput.value)
+    //     .then((result) => {
+    //       profileName.textContent = nameInput.value;
+    //       hobby.textContent = jobInput.value;
+    //       closePopup(popupEdit);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     })
+    //     .finally(() => {
+    //       renderLoading(false, evt);
+    //     });
+    // }
+
+    // profileForm.addEventListener("submit", handleProfileFormSubmit);
+
+    // function handleAvatarFormSubmit(evt) {
     //   evt.preventDefault();
     //   renderLoading(true, evt);
     //   loadAvatarToServer(linkInputOfAvatar.value)
@@ -88,19 +85,17 @@ export default class PopupWithForm extends Popup {
     // }
 
     // formAddElement.addEventListener("submit", handleFotoFormSubmit);
-    // function handleProfileFormSubmit(evt) {
-    //   evt.preventDefault();
-    //   renderLoading(true, evt);
-    //   loadProfileInfoToServer(nameInput.value, jobInput.value)
-    //     .then((result) => {
-    //       profileName.textContent = nameInput.value;
-    //       hobby.textContent = jobInput.value;
-    //       closePopup(popupEdit);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    //     .finally(() => {
-    //       renderLoading(false, evt);
-    //     });
-    // }
+  }
+  _submitFormHandler() {
+    evt.preventDefault();
+    renderLoading(true, evt);
+    const body = this._getInputValues();
+    this._submitFormHandler(body).then(() => this.closePopup()).finally(() => {
+        this._renderLoading(false);
+    })
+  }
+  closePopup() {
+    super.closePopup();
+    popup.querySelector(".popup__form").reset();
+  }
+}
