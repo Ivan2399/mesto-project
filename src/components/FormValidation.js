@@ -3,79 +3,70 @@ export default class FormValidation {
     this._validationConfig = selector;
     this._formElement = form;
     this._inputList = Array.from(
-      this._formElement.querySelectorAll(this._validityConfig.inputSelector)
+      this._formElement.querySelectorAll(this._validityConfig.formInputSelector)
     );
     this._buttonElement = this._formElement.querySelector(
-      this._validityConfig.submitButtonSelector
-    );
+      this._validityConfig.sumbitSelectorButton
+    );    
   }
-  showInputError(config, formElement, inputElement, errorMessage) {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(config.inputErrorClass);
+  
+  _showInputError(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add(this._validationConfig.inputErrorClass);    
+    errorElement.classList.add(this._validationConfig.errorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(config.errorClass);
   }
 
-  hideInputError(config, formElement, inputElement) {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(config.inputErrorClass);
-    errorElement.classList.remove(config.errorClass);
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove(this._validationConfig.inputErrorClass);
+    errorElement.classList.remove(this._validationConfig.errorClass);
     errorElement.textContent = "";
   }
 
-  checkInputValidity(config, formElement, inputElement) {
+  _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
-      showInputError(
-        config,
-        formElement,
+      this._showInputError(
         inputElement,
         inputElement.validationMessage
       );
     } else {
-      hideInputError(config, formElement, inputElement);
+      this._hideInputError(inputElement);
     }
   }
 
-  hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
-  toggleButtonState(config, inputList, buttonElement) {
-    if (hasInvalidInput(inputList)) {
-      buttonElement.disabled = true;
-      buttonElement.classList.add(config.inactiveButtonClass);
+  _toggleButtonState() {
+    if (this._hasInvalidInput()) {
+      this._buttonElement.disabled = true;
+      this._buttonElement.classList.add(this._validationConfig.submitDisabledButton);
     } else {
-      buttonElement.disabled = false;
-      buttonElement.classList.remove(config.inactiveButtonClass);
+      this._buttonElement.disabled = false;
+      this._buttonElement.classList.remove(this._validationConfig.submitDisabledButton);
     }
   }
 
-  setEventListeners(config, formElement) {
-    const inputList = Array.from(
-      formElement.querySelectorAll(config.inputSelector)
-    );
-    const buttonElement = formElement.querySelector(
-      config.submitButtonSelector
-    );
-    toggleButtonState(config, inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+  _setEventListeners() {
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {
-        checkInputValidity(config, formElement, inputElement);
-        toggleButtonState(config, inputList, buttonElement);
+        this._checkInputValidity(inputElement);
+        this._toggleButtonState();
       });
     });
   }
 
-  enableValidation(config) {
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
-    formList.forEach((formElement) => {
-      formElement.addEventListener("submit", function (evt) {
-        evt.preventDefault();
-      });
-      setEventListeners(config, formElement);
+  enableValidation() {
+    this._formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
     });
+    this._setEventListeners();
+    
   }
 
   //сброс настроек валидации для корректного открытия попапа c формой вновь
