@@ -1,4 +1,4 @@
-import { config } from "./Config";
+import { config } from "./config";
 
 export const elements = {
   cardsElementsContainer: document.querySelector(config.card.cardElements),

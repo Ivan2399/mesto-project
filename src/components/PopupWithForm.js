@@ -18,20 +18,8 @@ export default class PopupWithForm extends Popup {
     for (let input of this._inputs) {
       inputValues[input.name] = input.value;
     }
-    console.log(inputValues);
     return inputValues;
   }
-  // _renderLoading(isLoading, evt) {
-  //   if (isLoading) {
-  //     evt.target._submitButton.textContent = "Сохранение...";
-  //   } else {
-  //     if (evt.target.closest(this.selector)) {
-  //       evt.target._submitButton.textContent = "Создать";
-  //     } else {
-  //       evt.target._submitButton.textContent = "Сохранить";
-  //     }
-  //   }
-  // }
   _setButtonState(isSending) {
     this._submitButton.disabled = isSending;
     if (isSending) {

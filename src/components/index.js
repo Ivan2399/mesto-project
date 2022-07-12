@@ -1,6 +1,5 @@
 import "../index.css";
-// import { openPopup, closePopup, resetForm, renderLoading } from "./utils.js";
-import Popup from "./Popup";
+
 import PopupWithForm from "./PopupWithForm";
 import PopupWithImage from "./PopupWithImage";
 import FormValidation from "./FormValidation";
@@ -8,8 +7,6 @@ import Api from "./api";
 import UserInfo from "./UserInfo";
 
 import { apiConfig } from "./constants";
-// import { createCard } from "./Card.js";
-// import { enableValidation, resetValidation } from "./FormValidation.js";
 import { config } from "../utils/config";
 import { elements, forms } from "../utils/elements";
 
@@ -21,27 +18,36 @@ let cardList;
 const popupImage = new PopupWithImage(config.popup.popupImageOpen);
 
 const popupEditProfile = new PopupWithForm(config.popup.popupEdit, (body) => {
-  return api.loadProfileInfoToServer(body).then((res) => {
-    user.setUserInfo(res)
-  }).catch((err) => {
-    console.log(err);
-  });
+  return api
+    .loadProfileInfoToServer(body)
+    .then((res) => {
+      user.setUserInfo(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 const popupAddCard = new PopupWithForm(config.popup.popupAdd, (body) => {
-  api.loadCardToServer(body).then((res) => {
-    cardList.addItem(res)
-  }).catch((err) => {
-    console.log(err);
-  });
+  return api
+    .loadCardToServer(body)
+    .then((res) => {
+      cardList.addItem(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 const popupEditAvatar = new PopupWithForm(
   config.popup.popupEditAvatar,
   (body) => {
-    api.loadAvatarToServer(body).then((res) => {
-      user.setUserInfo(res).catch((err) => {
+    return api
+      .loadAvatarToServer(body)
+      .then((res) => {
+        user.setUserInfo(res);
+      })
+      .catch((err) => {
         console.log(err);
       });
-    });
   }
 );
 const api = new Api(apiConfig);
@@ -59,7 +65,7 @@ Promise.all([api.getProfileInfoFromServer(), api.getCardsFromServe()])
     user.setUserInfo(userData);
     const userId = user.getUserInfo()._id;
 
-    const cardList = new Section(
+    cardList = new Section(
       {
         item: cardsFromServer,
         render: (item) => {

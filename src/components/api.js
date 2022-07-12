@@ -1,5 +1,3 @@
-import { apiConfig } from "./constants";
-
 export default class Api {
   constructor(options) {
     this.options = options;
@@ -29,13 +27,13 @@ export default class Api {
     }).then(this._processStatus);
   }
 
-  loadCardToServer(linkInput, cardNameInput) {
+  loadCardToServer(inputValues) {
     return fetch(`${this.options.baseUrl}/cards`, {
       method: "POST",
       headers: this.options.headers,
       body: JSON.stringify({
-        name: cardNameInput,
-        link: linkInput,
+        name: inputValues.card,
+        link: inputValues.cardLink,
       }),
     }).then(this._processStatus);
   }
@@ -60,19 +58,17 @@ export default class Api {
     }).then(this._processStatus);
   }
 
-  loadAvatarToServer(linkInputOfAvatar) {
+  loadAvatarToServer(inputValues) {
     return fetch(`${this.options.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this.options.headers,
       body: JSON.stringify({
-        avatar: linkInputOfAvatar,
+        avatar: inputValues.avatarUrl,
       }),
     }).then(this._processStatus);
   }
 
   loadProfileInfoToServer(inputValues) {
-    console.log(inputValues.profile);
-    console.log(inputValues.profession);
     return fetch(`${this.options.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.options.headers,

@@ -1,4 +1,3 @@
-import { enableValidation } from "./FormValidation";
 import { config } from "../utils/config";
 
 export const apiConfig = {
@@ -17,11 +16,4 @@ export const validationConfig = {
   inputErrorClass: config.form.formErrorInput,
   errorClass: config.form.formErrorClass,
 };
-// enableValidation({
-//   formSelector: config.popup.formSelector,
-//   inputSelector: config.form.formInputSelector,
-//   submitButtonSelector: config.form.sumbitSelectorButton,
-//   inactiveButtonClass: config.form.submitDisabledButton,
-//   inputErrorClass: config.form.formErrorInput,
-//   errorClass: config.form.formErrorClass,
-// });
+
