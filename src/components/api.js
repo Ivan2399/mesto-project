@@ -1,5 +1,3 @@
-import { apiConfig } from "./constants";
-
 export default class Api {
   constructor(options) {
     this.options = options;
@@ -8,7 +6,7 @@ export default class Api {
     this.loadProfileInfoToServer = this.loadProfileInfoToServer.bind(this);
   }
 
-  processStatus(res) {
+  _processStatus(res) {
     if (res.ok) {
       return res.json();
     }
@@ -16,62 +14,68 @@ export default class Api {
   }
 
   getProfileInfoFromServer() {
-    return fetch(`${apiConfig.baseUrl}/users/me`, {
+    return fetch(`${this.options.baseUrl}/users/me`, {
       method: "GET",
-      headers: apiConfig.headers,
-    }).then(processStatus);
+      headers: this.options.headers,
+    }).then(this._processStatus);
   }
 
   getCardsFromServe() {
-    return fetch(`${apiConfig.baseUrl}/cards`, {
+    return fetch(`${this.options.baseUrl}/cards`, {
       method: "GET",
-      headers: apiConfig.headers,
-    }).then(processStatus);
+      headers: this.options.headers,
+    }).then(this._processStatus);
   }
 
-  loadCardToServer(linkInput, cardNameInput) {
-    return fetch(`${apiConfig.baseUrl}/cards`, {
+  loadCardToServer(inputValues) {
+    return fetch(`${this.options.baseUrl}/cards`, {
       method: "POST",
-      headers: apiConfig.headers,
+      headers: this.options.headers,
       body: JSON.stringify({
-        name: cardNameInput,
-        link: linkInput,
+        name: inputValues.card,
+        link: inputValues.cardLink,
       }),
-    }).then(processStatus);
+    }).then(this._processStatus);
   }
 
-  countCardLikes(cardID, likeMethod) {
-    return fetch(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
-      method: likeMethod,
-      headers: apiConfig.headers,
-    }).then(processStatus);
+  addCardLikes(cardID) {
+    return fetch(`${this.options.baseUrl}/cards/likes/${cardID}`, {
+      method: "PUT",
+      headers: this.options.headers,
+    }).then(this._processStatus);
+  }
+  deleteCardLikes(cardID) {
+    return fetch(`${this.options.baseUrl}/cards/likes/${cardID}`, {
+      method: "DELETE",
+      headers: this.options.headers,
+    }).then(this._processStatus);
   }
 
   deleteCardFromServer(cardID) {
-    return fetch(`${apiConfig.baseUrl}/cards/${cardID}`, {
+    return fetch(`${this.options.baseUrl}/cards/${cardID}`, {
       method: "DELETE",
-      headers: apiConfig.headers,
-    }).then(processStatus);
+      headers: this.options.headers,
+    }).then(this._processStatus);
   }
 
-  loadAvatarToServer(linkInputOfAvatar) {
-    return fetch(`${apiConfig.baseUrl}/users/me/avatar`, {
+  loadAvatarToServer(inputValues) {
+    return fetch(`${this.options.baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: apiConfig.headers,
+      headers: this.options.headers,
       body: JSON.stringify({
-        avatar: linkInputOfAvatar,
+        avatar: inputValues.avatarUrl,
       }),
-    }).then(processStatus);
+    }).then(this._processStatus);
   }
 
-  loadProfileInfoToServer(nameInput, jobInput) {
-    return fetch(`${apiConfig.baseUrl}/users/me`, {
+  loadProfileInfoToServer(inputValues) {
+    return fetch(`${this.options.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: apiConfig.headers,
+      headers: this.options.headers,
       body: JSON.stringify({
-        name: nameInput,
-        about: jobInput,
+        name: inputValues.profile,
+        about: inputValues.profession,
       }),
-    }).then(processStatus);
+    }).then(this._processStatus);
   }
 }

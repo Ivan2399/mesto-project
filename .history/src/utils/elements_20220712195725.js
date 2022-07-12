@@ -6,8 +6,16 @@ export const elements = {
     config.card.selectorCardElements
   ),
 
+<<<<<<< HEAD
   profileName: document.querySelector(config.profile.profileName),
   profileHobby: document.querySelector(config.profile.profileHobby),
+=======
+    profileName: document.querySelector(config.profile.profileName),
+    profileHobby: document.querySelector(config.profile.profileHobby),
+    profileAvatarImage: document.querySelector(config.profile.profileAvatar),
+
+    
+>>>>>>> main
 
   editButton: document.querySelector(config.profile.profileEditButton),
   editPopup: document.querySelector(config.popup.popupEdit),

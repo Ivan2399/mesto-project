@@ -2,7 +2,7 @@ export default class Section {
   constructor({ item, render }, selector) {
     this._data = item;
     this._renderer = render;
-    this._selector = selector;
+    this._container = document.querySelector(selector);
   }
   _clear() {
     this._container.innerHTML = "";

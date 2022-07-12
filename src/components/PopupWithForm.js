@@ -1,13 +1,16 @@
 import Popup from "./Popup";
+import { config } from "../utils/config";
 
 export default class PopupWithForm extends Popup {
   constructor(selector, submitFormHandler) {
     super(selector);
     this._submitFormHandler = submitFormHandler;
-    this._submitButton = this._form.querySelector(".popup__button");
-    this._renderLoading = this._renderLoading.bind(this);
-    this._form = this._popupElement.querySelectorAll(".popup__form");
-    this._inputs = this._form.querySelectorAll(".popup__input-item");
+    this._form = this._popupElement.querySelector(config.form.formSelector);
+    this._submitButton = this._form.querySelector(
+      config.form.sumbitSelectorButton
+    );
+    this._setButtonState = this._setButtonState.bind(this);
+    this._inputs = this._form.querySelectorAll(config.form.formInputSelector);
   }
 
   _getInputValues() {
@@ -17,90 +20,35 @@ export default class PopupWithForm extends Popup {
     }
     return inputValues;
   }
-  _renderLoading(isLoading, evt) {
-    if (isLoading) {
-      evt.target._submitButton.textContent = "Сохранение...";
+  _setButtonState(isSending) {
+    this._submitButton.disabled = isSending;
+    if (isSending) {
+      this._submitButton.textContent = "Сохранение...";
     } else {
-      if (evt.target.closest(this.selector)) {
-        evt.target._submitButton.textContent = "Создать";
-      } else {
-        evt.target._submitButton.textContent = "Сохранить";
-      }
+      this._submitButton.textContent = "Сохранить";
     }
   }
-//   _setButtonState(isSending) {
-//     this._submitButton.disabled = isSending;
-//     this._submitButton.textContent = isSending ? 'Загрузка...' : this._defualtSubmitButtonText;
-//   }
 
   _setEventListner() {
     super._setEventListner();
-    this._form.addEventListener("submit", this._submitFormHandler);
+    this._form.addEventListener("submit", this._submitHandler);
   }
   _removeEventListner() {
     super._removeEventListner();
-    this._form._removeEventListner("submit", this._submitFormHandler);
+    this._form.removeEventListener("submit", this._submitHandler);
   }
-  _submitFormHandler() {
+  _submitHandler = (evt) => {
     evt.preventDefault();
-    renderLoading(true, evt);
+    this._setButtonState(true);
     const body = this._getInputValues();
-    this._submitFormHandler(body).then(() => this.closePopup()).finally(() => {
-        this._renderLoading(false);
-    })
-  }
+    this._submitFormHandler(body)
+      .then(() => this.closePopup())
+      .finally(() => {
+        this._setButtonState(false);
+      });
+  };
   closePopup() {
     super.closePopup();
     this._form.reset();
   }
 }
-// function handleAvatarFormSubmit(evt) {
-    //   evt.preventDefault();
-    //   renderLoading(true, evt);
-    //   loadAvatarToServer(linkInputOfAvatar.value)
-    //     .then((result) => {
-    //       avatar.src = linkInputOfAvatar.value;
-    //       closePopup(popupAvatarEdit);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    //     .finally(() => {
-    //       renderLoading(false, evt);
-    //     });
-    // }
-
-    // function handleFotoFormSubmit(evt) {
-    //   evt.preventDefault();
-    //   renderLoading(true, evt);
-    //   loadCardToServer(linkInput.value, cardNameInput.value)
-    //     .then((result) => {
-    //       const cardElement = createCard(result);
-    //       cards.prepend(cardElement);
-    //       closePopup(popupAdd);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    //     .finally(() => {
-    //       renderLoading(false, evt);
-    //     });
-    // }
-
-    // formAddElement.addEventListener("submit", handleFotoFormSubmit);
-    // function handleProfileFormSubmit(evt) {
-    //   evt.preventDefault();
-    //   renderLoading(true, evt);
-    //   loadProfileInfoToServer(nameInput.value, jobInput.value)
-    //     .then((result) => {
-    //       profileName.textContent = nameInput.value;
-    //       hobby.textContent = jobInput.value;
-    //       closePopup(popupEdit);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    //     .finally(() => {
-    //       renderLoading(false, evt);
-    //     });
-    // }
