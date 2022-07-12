@@ -70,13 +70,15 @@ export default class Api {
     }).then(this._processStatus);
   }
 
-  loadProfileInfoToServer(nameInput, jobInput) {
+  loadProfileInfoToServer(inputValues) {
+    console.log(inputValues.profile);
+    console.log(inputValues.profession);
     return fetch(`${this.options.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.options.headers,
       body: JSON.stringify({
-        name: nameInput,
-        about: jobInput,
+        name: inputValues.profile,
+        about: inputValues.profession,
       }),
     }).then(this._processStatus);
   }

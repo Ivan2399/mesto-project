@@ -18,6 +18,7 @@ export default class PopupWithForm extends Popup {
     for (let input of this._inputs) {
       inputValues[input.name] = input.value;
     }
+    console.log(inputValues);
     return inputValues;
   }
   // _renderLoading(isLoading, evt) {
@@ -36,7 +37,7 @@ export default class PopupWithForm extends Popup {
     if (isSending) {
       this._submitButton.textContent = "Сохранение...";
     } else {
-      this._defualtSubmitButtonText.textContent = "Сохранить";
+      this._submitButton.textContent = "Сохранить";
     }
   }
 
@@ -46,7 +47,7 @@ export default class PopupWithForm extends Popup {
   }
   _removeEventListner() {
     super._removeEventListner();
-    this._form.removeEventListner("submit", this._submitHandler);
+    this._form.removeEventListener("submit", this._submitHandler);
   }
   _submitHandler = (evt) => {
     evt.preventDefault();

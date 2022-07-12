@@ -21,17 +21,17 @@ let cardList;
 const popupImage = new PopupWithImage(config.popup.popupImageOpen);
 
 const popupEditProfile = new PopupWithForm(config.popup.popupEdit, (body) => {
-  api.loadProfileInfoToServer(body).then((res) => {
-    user.setUserInfo(res).catch((err) => {
-      console.log(err);
-    });
+  return api.loadProfileInfoToServer(body).then((res) => {
+    user.setUserInfo(res)
+  }).catch((err) => {
+    console.log(err);
   });
 });
 const popupAddCard = new PopupWithForm(config.popup.popupAdd, (body) => {
   api.loadCardToServer(body).then((res) => {
-    cardList.addItem(res).catch((err) => {
-      console.log(err);
-    });
+    cardList.addItem(res)
+  }).catch((err) => {
+    console.log(err);
   });
 });
 const popupEditAvatar = new PopupWithForm(
