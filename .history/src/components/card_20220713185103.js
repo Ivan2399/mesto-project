@@ -2,11 +2,9 @@ import { config } from "../utils/config";
 
 export default class Card {
   constructor(
-    { data, handleCardClick, likeCard, deleteCard, userId },
-    selector,
-    config
+    { data, handleCardClick, likeCard, deleteCard, userId, config },
+    selector
   ) {
-    this.config = config;
     this.data = data;
     this.handleCardClick = handleCardClick;
     this.likeCard = likeCard;
@@ -18,7 +16,7 @@ export default class Card {
   _getElement() {
     return document
       .querySelector(this.selector)
-      .content.querySelector(this.config.card.cardElements)
+      .content.querySelector(config.card.cardElements)
       .cloneNode(true);
   }
   _handleImageClick = () => {
@@ -33,7 +31,7 @@ export default class Card {
     if (this.data.owner._id === this.userId) {
       // лайк чужой карточки
       this.cardDeleteButton.classList.add(
-        this.config.card.cardElementsDeleteButtonVisible
+        config.card.cardElementsDeleteButtonVisible
       );
       this.cardDeleteButton.addEventListener("click", () => {
         // удаление
@@ -55,28 +53,27 @@ export default class Card {
 
   _generate() {
     this.cardImage = this.cardElement.querySelector(
-      this.config.card.cardElementsImage
+      config.card.cardElementsImage
     );
     this.cardLikeButton = this.cardElement.querySelector(
-      this.config.card.cardElementsLikeButton
+      config.card.cardElementsLikeButton
     );
     this.cardLikeCounter = this.cardElement.querySelector(
-      this.config.card.cardElementsLikeCounter
+      config.card.cardElementsLikeCounter
     );
     this.cardDeleteButton = this.cardElement.querySelector(
-      this.config.card.cardElementsDeleteButton
+      config.card.cardElementsDeleteButton
     );
 
     this.cardImage.src = this.data.link;
     this.cardImage.alt = this.data.name;
 
     this.cardElement.id = this.data._id;
-    this.cardElement.querySelector(
-      this.config.card.cardElementsTitle
-    ).textContent = this.data.name;
+    this.cardElement.querySelector(config.card.cardElementsTitle).textContent =
+      this.data.name;
 
     if (this._myLike()) {
-      this.cardLikeButton.classList.add(this.config.card.cardElementLikeActive); // мои лайки
+      this.cardLikeButton.classList.add(config.card.cardElementLikeActive); // мои лайки
     }
     if (this.data.likes.length > 0) {
       this.cardLikeCounter.textContent = this.data.likes.length; // счетчик лайков

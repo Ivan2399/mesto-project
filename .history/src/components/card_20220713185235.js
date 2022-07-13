@@ -2,9 +2,8 @@ import { config } from "../utils/config";
 
 export default class Card {
   constructor(
-    { data, handleCardClick, likeCard, deleteCard, userId },
-    selector,
-    config
+    { data, handleCardClick, likeCard, deleteCard, userId, config },
+    selector
   ) {
     this.config = config;
     this.data = data;

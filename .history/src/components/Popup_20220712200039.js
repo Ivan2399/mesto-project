@@ -35,6 +35,7 @@ export default class Popup {
         this.closePopup();
       }
     });
+    document.addEventListener("keydown", this.closePopupByEsc);
   }
   _removeEventListner() {
     this._closeButton.removeEventListener("click", function () {
@@ -45,5 +46,6 @@ export default class Popup {
         this.closePopup();
       }
     });
+    document.removeEventListener("keydown", this.closePopupByEsc);
   }
 }

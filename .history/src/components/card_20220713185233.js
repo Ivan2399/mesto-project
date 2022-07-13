@@ -2,9 +2,8 @@ import { config } from "../utils/config";
 
 export default class Card {
   constructor(
-    { data, handleCardClick, likeCard, deleteCard, userId },
-    selector,
-    config
+    { data, handleCardClick, likeCard, deleteCard, userId, config },
+    selector
   ) {
     this.config = config;
     this.data = data;
@@ -71,9 +70,8 @@ export default class Card {
     this.cardImage.alt = this.data.name;
 
     this.cardElement.id = this.data._id;
-    this.cardElement.querySelector(
-      this.config.card.cardElementsTitle
-    ).textContent = this.data.name;
+    this.cardElement.querySelector(this.config.card.cardElementsTitle).textContent =
+      this.data.name;
 
     if (this._myLike()) {
       this.cardLikeButton.classList.add(this.config.card.cardElementLikeActive); // мои лайки

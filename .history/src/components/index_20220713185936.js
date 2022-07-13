@@ -27,6 +27,7 @@ const popupEditProfile = new PopupWithForm(config.popup.popupEdit, (body) => {
       console.log(err);
     });
 });
+
 const editFormValidation = new FormValidation(forms.editForm);
 editFormValidation.enableValidation();
 
@@ -57,10 +58,6 @@ const popupEditAvatar = new PopupWithForm(
       });
   }
 );
-
-const avatarFormValidation = new FormValidation(forms.avatarForm);
-avatarFormValidation.enableValidation();
-
 const api = new Api(apiConfig);
 const user = new UserInfo(
   {
@@ -155,10 +152,16 @@ Promise.all([api.getProfileInfoFromServer(), api.getCardsFromServe()])
 //edit profile
 elements.editButton.addEventListener("click", function () {
   popupEditProfile.openPopup();
-});
+//   const editFormValidation = new FormValidation(forms.editForm);
+//   editFormValidation.enableValidation();
+// });
 elements.addButton.addEventListener("click", function () {
   popupAddCard.openPopup();
+  const addFormValidation = new FormValidation(forms.addForm);
+  addFormValidation.enableValidation();
 });
 elements.profileAvatarImage.addEventListener("click", function () {
   popupEditAvatar.openPopup();
+  const avatarFormValidation = new FormValidation(forms.avatarForm);
+  avatarFormValidation.enableValidation();
 });
