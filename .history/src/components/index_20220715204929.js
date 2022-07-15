@@ -159,9 +159,7 @@ elements.editButton.addEventListener("click", function () {
 });
 elements.addButton.addEventListener("click", function () {
   popupAddCard.openPopup();
-  addFormValidation.resetValidation();
 });
 elements.profileAvatarImage.addEventListener("click", function () {
   popupEditAvatar.openPopup();
-  avatarFormValidation.resetValidation();
 });
