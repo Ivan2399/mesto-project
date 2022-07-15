@@ -155,13 +155,10 @@ Promise.all([api.getProfileInfoFromServer(), api.getCardsFromServe()])
 //edit profile
 elements.editButton.addEventListener("click", function () {
   popupEditProfile.openPopup();
-  editFormValidation.resetValidation();
 });
 elements.addButton.addEventListener("click", function () {
   popupAddCard.openPopup();
-  addFormValidation.resetValidation();
 });
 elements.profileAvatarImage.addEventListener("click", function () {
   popupEditAvatar.openPopup();
-  avatarFormValidation.resetValidation();
 });
